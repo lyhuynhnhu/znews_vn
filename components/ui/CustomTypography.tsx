@@ -25,13 +25,13 @@ export type WeightVariant =
 
 // Styled Typography component with custom variants
 const StyledTypography = styled(Typography)<{
-  customVariant?: CustomVariant;
-  colorVariant?: ColorVariant;
+  customvariant?: CustomVariant;
+  colorvariant?: ColorVariant;
   weight?: WeightVariant;
-}>(({ theme, customVariant, colorVariant, weight }) => {
+}>(({ theme, customvariant, colorvariant, weight }) => {
   // Custom variant styles
   const getVariantStyles = () => {
-    switch (customVariant) {
+    switch (customvariant) {
       case "title":
         return {
           fontSize: "1.2rem",
@@ -63,7 +63,7 @@ const StyledTypography = styled(Typography)<{
 
   // Color styles
   const getColorStyles = () => {
-    switch (colorVariant) {
+    switch (colorvariant) {
       case "primary":
         return { color: theme.palette.primary.main };
       case "success":
@@ -110,8 +110,8 @@ const StyledTypography = styled(Typography)<{
 
 export interface CustomTypographyProps
   extends Omit<TypographyProps, "variant" | "color"> {
-  customVariant?: CustomVariant;
-  colorVariant?: ColorVariant;
+  customvariant?: CustomVariant;
+  colorvariant?: ColorVariant;
   weight?: WeightVariant;
   gradient?: boolean;
   truncate?: boolean;
@@ -120,8 +120,8 @@ export interface CustomTypographyProps
 
 const CustomTypography: React.FC<CustomTypographyProps> = ({
   children,
-  customVariant,
-  colorVariant,
+  customvariant,
+  colorvariant,
   weight,
   gradient = false,
   truncate = false,
@@ -153,8 +153,8 @@ const CustomTypography: React.FC<CustomTypographyProps> = ({
 
   return (
     <StyledTypography
-      customVariant={customVariant}
-      colorVariant={colorVariant}
+      customvariant={customvariant}
+      colorvariant={colorvariant}
       weight={weight}
       sx={additionalStyles}
       {...props}

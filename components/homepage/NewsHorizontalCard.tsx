@@ -40,8 +40,8 @@ const NewsHorizontalCard = ({
 
         <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <CustomTypography
-            customVariant="smallTitle"
-            colorVariant="textPrimary"
+            customvariant="smallTitle"
+            colorvariant="textPrimary"
             sx={{
               mb: 1,
               "&:hover": {
@@ -54,8 +54,8 @@ const NewsHorizontalCard = ({
 
           {summary && (
             <CustomTypography
-              customVariant="summary"
-              colorVariant="textSecondary"
+              customvariant="summary"
+              colorvariant="textSecondary"
               maxLines={3}
             >
               {summary}

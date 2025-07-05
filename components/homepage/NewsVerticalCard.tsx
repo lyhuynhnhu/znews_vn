@@ -40,8 +40,8 @@ const NewsVerticalCard = ({
         />
 
         <CustomTypography
-          customVariant={!featured ? "mediumTitle" : "title"}
-          colorVariant="textPrimary"
+          customvariant={!featured ? "mediumTitle" : "title"}
+          colorvariant="textPrimary"
           maxLines={featured ? 3 : 2}
           sx={{
             mb: 1,
@@ -56,8 +56,8 @@ const NewsVerticalCard = ({
 
         {featured && summary && (
           <CustomTypography
-            customVariant="summary"
-            colorVariant="textSecondary"
+            customvariant="summary"
+            colorvariant="textSecondary"
             maxLines={3}
             sx={{
               mb: 1,
