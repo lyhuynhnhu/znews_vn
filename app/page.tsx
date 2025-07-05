@@ -7,6 +7,7 @@ import BooksSection from "@/components/homepage/BookSection";
 import BusinessSection from "@/components/homepage/BusinessSection";
 import CategorySection from "@/components/homepage/CategorySection";
 import MultimediaSection from "@/components/homepage/MultimediaSection";
+import VideoSection from "@/components/homepage/VideoSection";
 import BASE_URL from "@/constants/host";
 
 async function getNews() {
@@ -49,14 +50,24 @@ async function getMultiMedia() {
   return res.json();
 }
 
+async function getVideos() {
+  const res = await fetch(`${BASE_URL}/api/video`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch videos");
+  }
+  return res.json();
+}
+
 export default async function Home() {
-  const [news, books, businessNews, categoryNews, multimedia] = await Promise.all([
-    getNews(),
-    getBooks(),
-    getBusinessNews(),
-    getCategoryNews(),
-    getMultiMedia(),
-  ]);
+  const [news, books, businessNews, categoryNews, multimedia, videos] =
+    await Promise.all([
+      getNews(),
+      getBooks(),
+      getBusinessNews(),
+      getCategoryNews(),
+      getMultiMedia(),
+      getVideos(),
+    ]);
 
   const businessNewsKeys = Object.keys(businessNews);
 
@@ -80,6 +91,7 @@ export default async function Home() {
               ></BusinessSection>
             ))}
           <CategorySection categoryNews={categoryNews} />
+          <VideoSection featured={videos.featured} related={videos.related} />
         </Container>
       </Box>
     </>
