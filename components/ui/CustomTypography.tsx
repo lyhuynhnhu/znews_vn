@@ -3,7 +3,12 @@ import { Typography, type TypographyProps } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 // Define custom variant types
-export type CustomVariant = "title" | "summary" | "mediumTitle" | "smallTitle";
+export type CustomVariant =
+  | "title"
+  | "summary"
+  | "mediumTitle"
+  | "smallTitle"
+  | "subTitle";
 
 // Define color variants
 export type ColorVariant =
@@ -49,6 +54,12 @@ const StyledTypography = styled(Typography)<{
           fontSize: "0.9rem",
           fontWeight: 600,
           lineHeight: 1.4,
+        };
+      case "subTitle":
+        return {
+          fontSize: "0.8rem",
+          fontWeight: 600,
+          lineHeight: 1.3,
         };
       case "summary":
         return {

@@ -5,6 +5,7 @@ import TrendingTag from "@/components/homepage/TrendingTag";
 import FeatureSection from "@/components/homepage/FeatureSection";
 import BooksSection from "@/components/homepage/BookSection";
 import BusinessSection from "@/components/homepage/BusinessSection";
+import CategorySection from "@/components/homepage/CategorySection";
 import BASE_URL from "@/constants/host";
 
 async function getNews() {
@@ -31,11 +32,20 @@ async function getBusinessNews() {
   return res.json();
 }
 
+async function getCategoryNews() {
+  const res = await fetch(`${BASE_URL}/api/category`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch category news");
+  }
+  return res.json();
+}
+
 export default async function Home() {
-  const [news, books, businessNews] = await Promise.all([
+  const [news, books, businessNews, categoryNews] = await Promise.all([
     getNews(),
     getBooks(),
     getBusinessNews(),
+    getCategoryNews(),
   ]);
 
   const businessNewsKeys = Object.keys(businessNews);
@@ -58,6 +68,7 @@ export default async function Home() {
                 businessNews={businessNews[item]}
               ></BusinessSection>
             ))}
+          <CategorySection categoryNews={categoryNews} />
         </Container>
       </Box>
     </>
