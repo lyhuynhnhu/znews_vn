@@ -7,7 +7,7 @@ export async function GET() {
       title: "Tổng Bí thư Tô Lâm điện đàm với Tổng thống Mỹ Donald Trump",
       summary:
         "20h ngày 2/7 (giờ Việt Nam), Tổng Bí thư Tô Lâm đã có cuộc điện đàm với Tổng thống Mỹ Donald Trump về quan hệ Việt Nam - Mỹ, cũng như đàm phán về thuế đối ứng giữa hai nước, theo TTXVN.",
-      image: "/images/news.jpg",
+      image: "/images/sport.webp",
       category: "Chính trị",
       publishedAt: "2025-01-03T10:00:00Z",
       featured: true,
@@ -79,7 +79,7 @@ export async function GET() {
         "Trào lưu gặp người thân đã mất bằng Google Maps là 'con dao hai lưỡi'",
       summary:
         "Nhiều người sử dụng Google Maps để tìm kiếm những hình ảnh cuối cùng của người thân đã qua đời.",
-      image: "/images/news.jpg",
+      image: "/images/business.webp",
       category: "Công nghệ",
       publishedAt: "2025-01-03T07:00:00Z",
       featured: false,
