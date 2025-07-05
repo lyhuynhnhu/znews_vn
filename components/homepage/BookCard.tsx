@@ -1,6 +1,7 @@
 "use client";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import Link from "next/link";
+import CustomTypography from "../ui/CustomTypography";
 
 interface BookCardProps {
   id: number;
@@ -23,14 +24,10 @@ const BookCard = ({ id, title, image }: BookCardProps) => {
       >
         <CardMedia component="img" height={250} image={image} alt={title} />
         <CardContent>
-          <Typography
-            variant="body2"
-            component="p"
+          <CustomTypography
+            customvariant="smallTitle"
+            colorvariant="textPrimary"
             sx={{
-              fontWeight: "bold",
-              lineHeight: 1.3,
-              color: "#333",
-              fontSize: "0.9rem",
               "&:hover": {
                 color: "#006BA0",
               },
@@ -38,7 +35,7 @@ const BookCard = ({ id, title, image }: BookCardProps) => {
             }}
           >
             {title}
-          </Typography>
+          </CustomTypography>
         </CardContent>
       </Card>
     </Link>

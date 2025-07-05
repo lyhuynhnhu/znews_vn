@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import BookCard from "./BookCard";
+import CustomTypography from "../ui/CustomTypography";
 
 interface Book {
   id: number;
@@ -30,12 +31,11 @@ const BooksSection = ({ books }: BooksSectionProps) => {
 
   return (
     <Box sx={{ px: 4, mb: 4 }}>
-      <Typography
-        variant="h6"
-        component="h2"
+      <CustomTypography
+        customvariant="title"
+        colorvariant="textPrimary"
         sx={{
-          fontWeight: "bold",
-          position: "relative",
+          color: "black",
           "&::before": {
             content: '"/"',
             color: "#ff6b35",
@@ -46,9 +46,9 @@ const BooksSection = ({ books }: BooksSectionProps) => {
         }}
       >
         BOOKS
-      </Typography>
+      </CustomTypography>
 
-      {/* Slider Container with Navigation Arrows */}
+      {/* Slider Container */}
       <Box sx={{ position: "relative", my: 3 }}>
         {/* Left Arrow */}
         <IconButton
