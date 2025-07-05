@@ -6,6 +6,7 @@ import FeatureSection from "@/components/homepage/FeatureSection";
 import BooksSection from "@/components/homepage/BookSection";
 import BusinessSection from "@/components/homepage/BusinessSection";
 import CategorySection from "@/components/homepage/CategorySection";
+import MultimediaSection from "@/components/homepage/MultimediaSection";
 import BASE_URL from "@/constants/host";
 
 async function getNews() {
@@ -40,12 +41,21 @@ async function getCategoryNews() {
   return res.json();
 }
 
+async function getMultiMedia() {
+  const res = await fetch(`${BASE_URL}/api/multimedia`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch multimedia data");
+  }
+  return res.json();
+}
+
 export default async function Home() {
-  const [news, books, businessNews, categoryNews] = await Promise.all([
+  const [news, books, businessNews, categoryNews, multimedia] = await Promise.all([
     getNews(),
     getBooks(),
     getBusinessNews(),
     getCategoryNews(),
+    getMultiMedia(),
   ]);
 
   const businessNewsKeys = Object.keys(businessNews);
@@ -60,6 +70,7 @@ export default async function Home() {
           <TrendingTag />
           <FeatureSection news={news} />
           <BooksSection books={books} />
+          <MultimediaSection multiMedia={multimedia} />
           {businessNewsKeys.length > 0 &&
             businessNewsKeys.map((item) => (
               <BusinessSection
