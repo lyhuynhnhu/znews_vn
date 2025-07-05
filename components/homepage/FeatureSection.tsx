@@ -24,7 +24,7 @@ const FeatureSection = ({ news }: FeatureSectionProps) => {
     <Box sx={{ py: 2, px: 4 }}>
       <Grid container spacing={3}>
         {/* Left Sidebar */}
-        <Grid size={{ xs: 12, md: 3 }}>
+        <Grid size={{ xs: 12, md: 3.5 }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {leftSidebarNews.map((article: any, idx: number) => (
               <NewsHorizontalCard
@@ -39,7 +39,7 @@ const FeatureSection = ({ news }: FeatureSectionProps) => {
         </Grid>
 
         {/* Main Content */}
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, md: 5.5 }}>
           {featuredNews && (
             <Box sx={{ mb: 4 }}>
               <NewsVerticalCard {...featuredNews} featured />

@@ -1,6 +1,8 @@
 "use client";
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import Link from "next/link";
+import CustomTypography from "../ui/CustomTypography";
+import ImageBox from "../ui/ImageBox";
 
 interface NewsCardProps {
   id: number;
@@ -29,54 +31,40 @@ const NewsVerticalCard = ({
           flexDirection: "column",
         }}
       >
-        <Box
-          component="img"
+        <ImageBox
           src={image}
           alt={title}
           sx={{
-            width: "100%",
             height: featured ? 320 : 180,
-            objectFit: "cover",
-            borderRadius: 1,
-            flexShrink: 0,
           }}
         />
 
-        <Typography
-          variant={featured ? "h5" : "inherit"}
-          component="h3"
+        <CustomTypography
+          customVariant={!featured ? "mediumTitle" : "title"}
+          colorVariant="textPrimary"
+          maxLines={featured ? 3 : 2}
           sx={{
-            color: "#333",
+            mb: 1,
+            mt: featured ? 2 : 1,
             "&:hover": {
               color: "#006BA0",
             },
-            fontWeight: "bold",
-            lineHeight: 1.3,
-            mt: featured ? 2 : 1,
-            mb: 1,
-            display: "-webkit-box",
-            WebkitLineClamp: featured ? 3 : 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
           }}
         >
           {title}
-        </Typography>
+        </CustomTypography>
 
         {featured && summary && (
-          <Typography
-            variant="body2"
-            color="text.secondary"
+          <CustomTypography
+            customVariant="summary"
+            colorVariant="textSecondary"
+            maxLines={3}
             sx={{
               mb: 1,
-              display: "-webkit-box",
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
             }}
           >
             {summary}
-          </Typography>
+          </CustomTypography>
         )}
       </Box>
     </Link>

@@ -1,6 +1,8 @@
 "use client";
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import Link from "next/link";
+import CustomTypography from "../ui/CustomTypography";
+import ImageBox from "../ui/ImageBox";
 
 interface MainNewsCardProps {
   id: number;
@@ -26,52 +28,38 @@ const NewsHorizontalCard = ({
           pb: 2,
         }}
       >
-        <Box
-          component="img"
+        <ImageBox
           src={image}
           alt={title}
           sx={{
-            width: "30%",
-            height: "auto",
-            objectFit: "cover",
-            borderRadius: 1,
+            width: "40%",
+            height: 70,
             mr: 2,
-            flexShrink: 0,
           }}
         />
 
         <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
-          <Typography
-            variant="h6"
-            component="text"
+          <CustomTypography
+            customVariant="smallTitle"
+            colorVariant="textPrimary"
             sx={{
-              fontWeight: "600",
-              fontSize: "0.9rem",
-              lineHeight: 1.3,
-              color: "#333",
+              mb: 1,
               "&:hover": {
                 color: "#006BA0",
               },
-              mb: 1,
             }}
           >
             {title}
-          </Typography>
+          </CustomTypography>
 
           {summary && (
-            <Typography
-              variant="body2"
-              sx={{
-                color: "#666",
-                lineHeight: 1.5,
-                display: "-webkit-box",
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
+            <CustomTypography
+              customVariant="summary"
+              colorVariant="textSecondary"
+              maxLines={3}
             >
               {summary}
-            </Typography>
+            </CustomTypography>
           )}
         </Box>
       </Box>
