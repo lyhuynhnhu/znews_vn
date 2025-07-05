@@ -53,7 +53,7 @@ const StyledTypography = styled(Typography)<{
       case "summary":
         return {
           fontSize: "1rem",
-          fontWeight: 500,
+          fontWeight: 400,
           lineHeight: 1.5,
         };
       default:

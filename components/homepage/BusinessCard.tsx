@@ -1,0 +1,158 @@
+"use client";
+import { Box, Card, Divider } from "@mui/material";
+import Link from "next/link";
+import CustomTypography from "../ui/CustomTypography";
+import ImageBox from "../ui/ImageBox";
+
+interface BusinessCardProps {
+  id: number;
+  title: string;
+  summary?: string;
+  image: string;
+  publishedAt: string;
+  size: "large" | "medium" | "small";
+  isLast?: boolean;
+}
+
+const BusinessCard = ({
+  id,
+  title,
+  summary,
+  image,
+  size,
+  isLast,
+}: BusinessCardProps) => {
+  return (
+    <Link href={`/business/${id}`} style={{ textDecoration: "none" }}>
+      {size === "large" && (
+        <LargeBusinessCard title={title} summary={summary} image={image} />
+      )}
+      {size === "medium" && <MediumBusinessCard title={title} image={image} />}
+      {size === "small" && (
+        <SmallBusinessCard title={title} image={image} isLast={isLast} />
+      )}
+    </Link>
+  );
+};
+
+const LargeBusinessCard = ({
+  title,
+  summary,
+  image,
+}: Pick<BusinessCardProps, "title" | "summary" | "image">) => (
+  <>
+    <ImageBox
+      src={image}
+      alt={title}
+      sx={{
+        width: "100%",
+        height: { xs: 200, md: 320 },
+      }}
+    />
+
+    <CustomTypography
+      customvariant="title"
+      colorvariant="textPrimary"
+      maxLines={2}
+      sx={{
+        py: 2,
+        "&:hover": {
+          color: "#006BA0",
+        },
+      }}
+    >
+      {title}
+    </CustomTypography>
+
+    {summary && (
+      <CustomTypography customvariant="summary" colorvariant="textSecondary">
+        {summary}
+      </CustomTypography>
+    )}
+  </>
+);
+
+const MediumBusinessCard = ({
+  title,
+  image,
+}: Pick<BusinessCardProps, "title" | "image">) => (
+  <Card
+    sx={{
+      cursor: "pointer",
+      border: "none",
+      boxShadow: "none",
+      height: "100%",
+    }}
+  >
+    <ImageBox
+      src={image}
+      alt={title}
+      sx={{
+        width: "100%",
+        height: { xs: 150, md: 160 },
+        mb: 1,
+      }}
+    />
+    <CustomTypography
+      customvariant="mediumTitle"
+      colorvariant="textPrimary"
+      maxLines={3}
+      sx={{
+        pt: 1,
+        "&:hover": {
+          color: "#006BA0",
+        },
+      }}
+    >
+      {title}
+    </CustomTypography>
+  </Card>
+);
+
+const SmallBusinessCard = ({
+  title,
+  image,
+  isLast,
+}: Pick<BusinessCardProps, "title" | "image" | "isLast">) => (
+  <>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "flex-start",
+        gap: 2,
+        cursor: "pointer",
+        "&:hover": {
+          bgcolor: "#f5f5f5",
+          borderRadius: 1,
+          transition: "all 0.3s ease",
+        },
+        p: 1,
+      }}
+    >
+      <CustomTypography
+        customvariant="smallTitle"
+        colorvariant="textPrimary"
+        maxLines={3}
+        sx={{
+          flex: 1,
+          "&:hover": {
+            color: "#006BA0",
+          },
+        }}
+      >
+        {title}
+      </CustomTypography>
+      <ImageBox
+        src={image}
+        alt={title}
+        sx={{
+          width: { xs: 50, md: 70 },
+          height: { xs: 50, md: 70 },
+        }}
+      />
+    </Box>
+    {!isLast && <Divider sx={{ my: 1 }} />}
+  </>
+);
+
+export default BusinessCard;
