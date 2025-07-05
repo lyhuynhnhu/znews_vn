@@ -3,6 +3,7 @@ import { Box, Container } from "@mui/material";
 import Header from "@/components/layout/Header";
 import TrendingTag from "@/components/homepage/TrendingTag";
 import FeatureSection from "@/components/homepage/FeatureSection";
+import BooksSection from "@/components/homepage/BookSection";
 import BASE_URL from "@/constants/host";
 
 async function getNews() {
@@ -13,8 +14,16 @@ async function getNews() {
   return res.json();
 }
 
+async function getBooks() {
+  const res = await fetch(`${BASE_URL}/api/books`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch books");
+  }
+  return res.json();
+}
+
 export default async function Home() {
-  const [news] = await Promise.all([getNews()]);
+  const [news, books] = await Promise.all([getNews(), getBooks()]);
 
   return (
     <>
@@ -25,6 +34,7 @@ export default async function Home() {
         <Container maxWidth="lg">
           <TrendingTag />
           <FeatureSection news={news} />
+          <BooksSection books={books} />
         </Container>
       </Box>
     </>
