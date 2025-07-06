@@ -8,6 +8,7 @@ import BusinessSection from "@/components/homepage/BusinessSection";
 import CategorySection from "@/components/homepage/CategorySection";
 import MultimediaSection from "@/components/homepage/MultimediaSection";
 import VideoSection from "@/components/homepage/VideoSection";
+import Footer from "@/components/layout/Footer";
 import BASE_URL from "@/constants/host";
 
 async function getNews() {
@@ -75,7 +76,7 @@ export default async function Home() {
     <>
       <Header />
       <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: '70px' }}
       >
         <Container maxWidth="lg">
           <TrendingTag />
@@ -94,6 +95,7 @@ export default async function Home() {
           <VideoSection featured={videos.featured} related={videos.related} />
         </Container>
       </Box>
+      <Footer />
     </>
   );
 }
