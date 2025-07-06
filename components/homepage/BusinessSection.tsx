@@ -48,15 +48,17 @@ const BusinessSection = ({ businessNews }: BusinessSectionProps) => {
 
               <Grid container spacing={3}>
                 {/* Left Column - Featured News (Large) */}
-                <Grid size={{ xs: 12, sm: 7, md: 5.5 }}>{featuredNews && <BusinessCard {...featuredNews} />}</Grid>
+                <Grid size={{ xs: 12, sm: 7.5, md: 5.5 }}>{featuredNews && <BusinessCard {...featuredNews} />}</Grid>
 
                 {/* Center Column - Medium News */}
-                <Grid size={{ xs: 12, sm: 5, md: 3 }}>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Grid container size={{ xs: 12, sm: 4.5, md: 3 }}>
+                  {/* <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}> */}
                     {mediumNews.map((article) => (
+                      <Grid size={{ xs: 6, sm: 12 }} key={article.id}>
                       <BusinessCard key={article.id} {...article} />
+                      </Grid>
                     ))}
-                  </Box>
+                  {/* </Box> */}
                 </Grid>
 
                 {/* Right Column - Small News List */}

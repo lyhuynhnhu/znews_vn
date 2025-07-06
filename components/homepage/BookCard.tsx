@@ -16,7 +16,7 @@ const BookCard = ({ id, title, image }: BookCardProps) => {
 
   return (
     <Link
-      href={`/books/${id}`}
+      href={`/news/${id}`}
       style={{
         textDecoration: 'none',
         minWidth: isMobile ? 'calc(100% - 5px)' : isTablet ? 'calc(33% - 10px)' : 'calc(20% - 14px)'

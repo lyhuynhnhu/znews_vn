@@ -24,6 +24,10 @@ const Header = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const navBackToHome = () => {
+    window.location.href = '/';
+  };
+
   return (
     <>
       <AppBar
@@ -76,6 +80,7 @@ const Header = () => {
                   <Button
                     key={item}
                     color='inherit'
+                    onClick={navBackToHome}
                     sx={{
                       textTransform: 'none',
                       fontSize: '0.95rem',

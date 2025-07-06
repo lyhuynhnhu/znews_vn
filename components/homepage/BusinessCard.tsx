@@ -22,14 +22,7 @@ const BusinessCard = ({ id, title, summary, image, size, isLast }: BusinessCardP
 
 const LargeBusinessCard = ({ title, summary, image }: Pick<BusinessCardProps, 'title' | 'summary' | 'image'>) => (
   <>
-    <ImageBox
-      src={image}
-      alt={title}
-      sx={{
-        width: '100%',
-        height: { xs: 230, md: 320 }
-      }}
-    />
+    <ImageBox src={image} alt={title} />
 
     <CustomTypography
       customvariant='title'
@@ -65,15 +58,13 @@ const MediumBusinessCard = ({ title, image }: Pick<BusinessCardProps, 'title' | 
       src={image}
       alt={title}
       sx={{
-        width: '100%',
-        height: { xs: 150, md: 160 },
         mb: 1
       }}
     />
     <CustomTypography
       customvariant='mediumTitle'
       colorvariant='textPrimary'
-      maxLines={3}
+      maxLines={{ xs: 'auto', sm: 3 }}
       sx={{
         pt: 1,
         '&:hover': {

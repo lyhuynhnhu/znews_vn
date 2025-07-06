@@ -84,8 +84,6 @@ const MultimediaSection = ({ multiMedia }: MultimediaSectionProps) => {
                 src={multiMedia.featured.image}
                 alt={multiMedia.featured.title}
                 sx={{
-                  width: '100%',
-                  height: { xs: 250, sm: 350, md: 300 },
                   mb: 2
                 }}
               />
@@ -128,8 +126,6 @@ const MultimediaSection = ({ multiMedia }: MultimediaSectionProps) => {
                       src={item.image}
                       alt={item.title}
                       sx={{
-                        width: '100%',
-                        height: { xs: 100, md: 150 },
                         mb: 1
                       }}
                     />

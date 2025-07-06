@@ -29,7 +29,7 @@ const CategoryCard = ({ id, title, image, featured }: CategoryCardProps) => {
         p: 1
       };
   const imageBoxStyles = featured
-    ? { width: '100%', height: { xs: 200, md: 150 }, mb: 2 }
+    ? { mb: 2 }
     : { width: { xs: 100, md: 60 }, height: { xs: 70, md: 45 } };
   const typographyVariant = featured ? 'mediumTitle' : 'subTitle';
   const maxLines = featured ? 1 : 3;

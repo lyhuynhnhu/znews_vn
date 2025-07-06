@@ -29,7 +29,6 @@ const VideoItem = ({ thumbnail, title, videoUrl, category, isRelated }: VideoPla
           width: 100,
           height: 70,
           flexShrink: 0,
-          borderRadius: 1,
           overflow: 'hidden',
           position: 'relative'
         }}
