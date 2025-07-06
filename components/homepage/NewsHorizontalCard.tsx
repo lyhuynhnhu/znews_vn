@@ -52,6 +52,7 @@ const NewsHorizontalCard = ({
               customvariant="smallTitle"
               colorvariant="textSecondary"
               maxLines={3}
+              display={{ xs: "none", sm: "block" }}
               sx={{ fontWeight: "normal" }}
             >
               {summary}
