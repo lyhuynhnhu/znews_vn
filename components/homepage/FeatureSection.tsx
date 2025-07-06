@@ -18,17 +18,15 @@ const FeatureSection = ({ news }: FeatureSectionProps) => {
       <Grid container spacing={3}>
         {/* Left Sidebar */}
         <Grid size={{ md: 3.5 }} display={{ xs: "none", md: "block" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            {leftSidebarNews.map((article: any, idx: number) => (
-              <NewsHorizontalCard
-                key={article.id}
-                id={article.id}
-                title={article.title}
-                image={article.image}
-                isLast={idx === leftSidebarNews.length - 1}
-              />
-            ))}
-          </Box>
+          {leftSidebarNews.map((article: any, idx: number) => (
+            <NewsHorizontalCard
+              key={article.id}
+              id={article.id}
+              title={article.title}
+              image={article.image}
+              isLast={idx === leftSidebarNews.length - 1}
+            />
+          ))}
         </Grid>
 
         {/* Main Content */}
@@ -50,15 +48,15 @@ const FeatureSection = ({ news }: FeatureSectionProps) => {
 
           {/* Small News Content */}
           <Grid size={{ xs: 12, sm: 5 }} display={{ md: "none" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              {leftSidebarNews.map((article: any, idx: number) => (
-                <NewsHorizontalCard
-                  key={article.id}
-                  {...article}
-                  isLast={idx === leftSidebarNews.length - 1}
-                />
-              ))}
-            </Box>
+            {leftSidebarNews.map((article: any, idx: number) => (
+              <NewsHorizontalCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                image={article.image}
+                isLast={idx === leftSidebarNews.length - 1}
+              />
+            ))}
           </Grid>
         </Grid>
       </Grid>

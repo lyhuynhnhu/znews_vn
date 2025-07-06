@@ -25,7 +25,7 @@ const BooksSection = ({ books }: BooksSectionProps) => {
   };
 
   return (
-    <Box sx={{ p: { xs: 1, md: 4 } }}>
+    <Box sx={{ px: { xs: 1, md: 4 }, py: 2 }}>
       <CustomTypography
         customvariant="title"
         colorvariant="textPrimary"

@@ -22,22 +22,20 @@ const NewsHorizontalCard = ({
         sx={{
           display: "flex",
           cursor: "pointer",
-          pb: 2,
         }}
       >
         <ImageBox
           src={image}
           alt={title}
           sx={{
-            width: { xs: "30%", md: "40%" },
-            height: 70,
+            width: "35%",
             mr: 2,
           }}
         />
 
         <Box sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <CustomTypography
-            customvariant="smallTitle"
+            customvariant={summary ? "title" : "smallTitle"}
             colorvariant="textPrimary"
             sx={{
               mb: 1,
@@ -51,16 +49,17 @@ const NewsHorizontalCard = ({
 
           {summary && (
             <CustomTypography
-              customvariant="summary"
+              customvariant="smallTitle"
               colorvariant="textSecondary"
               maxLines={3}
+              sx={{ fontWeight: "normal" }}
             >
               {summary}
             </CustomTypography>
           )}
         </Box>
       </Box>
-      {!isLast && <Divider />}
+      {!isLast && <Divider sx={{ my: 2 }} />}
     </Link>
   );
 };

@@ -8,6 +8,7 @@ import BusinessSection from "@/components/homepage/BusinessSection";
 import CategorySection from "@/components/homepage/CategorySection";
 import MultimediaSection from "@/components/homepage/MultimediaSection";
 import VideoSection from "@/components/homepage/VideoSection";
+import NewsList from "@/components/homepage/NewsList";
 import Footer from "@/components/layout/Footer";
 import BASE_URL from "@/constants/host";
 
@@ -81,6 +82,7 @@ export default async function Home() {
           <FeatureSection news={news} />
           <BooksSection books={books} />
           <MultimediaSection multiMedia={multimedia} />
+          <NewsList newsList={news} />
           <BusinessSection businessNews={businessNews} />
           <CategorySection categoryNews={categoryNews} />
           <VideoSection featured={videos.featured} related={videos.related} />

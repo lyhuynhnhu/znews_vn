@@ -52,13 +52,13 @@ export async function GET() {
       {
         id: 8,
         title: "TikToker 54 triệu follow trở lại sau bê bối tấn công tình dục",
-        image: "/images/sport.jpg",
+        image: "/images/girl.webp",
         featured: false,
       },
       {
         id: 9,
         title: "Đội bóng Trung Quốc bị phạt vì dân bùa trong phòng thay đồ của đối thủ",
-        image: "/images/sport.jpg",
+        image: "/images/map.webp",
         featured: false,
       },
     ],

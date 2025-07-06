@@ -14,12 +14,13 @@ export async function GET() {
     },
     {
       id: 2,
-      title: "Diogo Jota từ nạn, cú sốc trăm triệu bảng cho Liverpool",
+      title:
+        "Giá điện thoại, tivi tại Thế Giới Di Động đồng loạt giảm sau 1 đêm",
       summary:
-        "Cái chết thương tâm của Diogo Jota không chỉ là mất mát to lớn về mặt con người mà còn gây ra những hệ lụy tài chính đáng kể cho CLB chủ quản Liverpool.",
-      image: "/images/sport.webp",
-      category: "Thể thao",
-      publishedAt: "2025-01-03T09:30:00Z",
+        "Từ ngày 1/7, hơn 3.000 cửa hàng Thegioididong.com và Điện Máy Xanh đã đồng loạt giảm giá điện thoại, tivi, tủ lạnh... theo chính sách giảm thuế VAT từ 10% xuống 8%.",
+      image: "/images/technology.webp",
+      category: "Kinh tế",
+      publishedAt: "2025-01-03T08:30:00Z",
       featured: false,
     },
     {
@@ -34,13 +35,12 @@ export async function GET() {
     },
     {
       id: 4,
-      title:
-        "Giá điện thoại, tivi tại Thế Giới Di Động đồng loạt giảm sau 1 đêm",
+      title: "Diogo Jota từ nạn, cú sốc trăm triệu bảng cho Liverpool",
       summary:
-        "Từ ngày 1/7, hơn 3.000 cửa hàng Thegioididong.com và Điện Máy Xanh đã đồng loạt giảm giá điện thoại, tivi, tủ lạnh... theo chính sách giảm thuế VAT từ 10% xuống 8%.",
-      image: "/images/technology.webp",
-      category: "Kinh tế",
-      publishedAt: "2025-01-03T08:30:00Z",
+        "Cái chết thương tâm của Diogo Jota không chỉ là mất mát to lớn về mặt con người mà còn gây ra những hệ lụy tài chính đáng kể cho CLB chủ quản Liverpool.",
+      image: "/images/sport.webp",
+      category: "Thể thao",
+      publishedAt: "2025-01-03T09:30:00Z",
       featured: false,
     },
     {
@@ -58,7 +58,7 @@ export async function GET() {
       title: "GDP quý II tăng 7,96%",
       summary:
         "Tính chung 6 tháng đầu năm, GDP tăng 7,52% và là mức tăng nửa đầu năm cao nhất trong suốt giai đoạn 2011-2025.",
-      image: "/images/news.jpg",
+      image: "/images/city.webp",
       category: "Kinh tế",
       publishedAt: "2025-01-03T07:30:00Z",
       featured: false,
