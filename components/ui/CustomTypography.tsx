@@ -1,33 +1,23 @@
-import type React from "react";
-import { Typography, type TypographyProps } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import type React from 'react';
+import { Typography, type TypographyProps } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 // Define custom variant types
-export type CustomVariant =
-  | "title"
-  | "summary"
-  | "mediumTitle"
-  | "smallTitle"
-  | "subTitle";
+export type CustomVariant = 'title' | 'summary' | 'mediumTitle' | 'smallTitle' | 'subTitle';
 
 // Define color variants
 export type ColorVariant =
-  | "primary"
-  | "secondary"
-  | "success"
-  | "error"
-  | "warning"
-  | "info"
-  | "textPrimary"
-  | "textSecondary";
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
+  | 'textPrimary'
+  | 'textSecondary';
 
 // Define weight variants
-export type WeightVariant =
-  | "light"
-  | "regular"
-  | "medium"
-  | "semibold"
-  | "bold";
+export type WeightVariant = 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
 
 // Styled Typography component with custom variants
 const StyledTypography = styled(Typography)<{
@@ -38,35 +28,35 @@ const StyledTypography = styled(Typography)<{
   // Custom variant styles
   const getVariantStyles = () => {
     switch (customvariant) {
-      case "title":
+      case 'title':
         return {
-          fontSize: "1.2rem",
+          fontSize: '1.2rem',
           fontWeight: 700,
-          lineHeight: 1.3,
+          lineHeight: 1.3
         };
-      case "mediumTitle":
+      case 'mediumTitle':
         return {
-          fontSize: "1rem",
+          fontSize: '1rem',
           fontWeight: 600,
-          lineHeight: 1.3,
+          lineHeight: 1.3
         };
-      case "smallTitle":
+      case 'smallTitle':
         return {
-          fontSize: "0.9rem",
+          fontSize: '0.9rem',
           fontWeight: 600,
-          lineHeight: 1.4,
+          lineHeight: 1.4
         };
-      case "subTitle":
+      case 'subTitle':
         return {
-          fontSize: "0.8rem",
+          fontSize: '0.8rem',
           fontWeight: 600,
-          lineHeight: 1.3,
+          lineHeight: 1.3
         };
-      case "summary":
+      case 'summary':
         return {
-          fontSize: "1rem",
+          fontSize: '1rem',
           fontWeight: 400,
-          lineHeight: 1.5,
+          lineHeight: 1.5
         };
       default:
         return {};
@@ -76,21 +66,21 @@ const StyledTypography = styled(Typography)<{
   // Color styles
   const getColorStyles = () => {
     switch (colorvariant) {
-      case "primary":
+      case 'primary':
         return { color: theme.palette.primary.main };
-      case "secondary":
-        return { color: "#666" };
-      case "success":
+      case 'secondary':
+        return { color: '#666' };
+      case 'success':
         return { color: theme.palette.success.main };
-      case "error":
+      case 'error':
         return { color: theme.palette.error.main };
-      case "warning":
+      case 'warning':
         return { color: theme.palette.warning.main };
-      case "info":
+      case 'info':
         return { color: theme.palette.info.main };
-      case "textPrimary":
-        return { color: "#333" };
-      case "textSecondary":
+      case 'textPrimary':
+        return { color: '#333' };
+      case 'textSecondary':
         return { color: theme.palette.text.secondary };
       default:
         return {};
@@ -100,15 +90,15 @@ const StyledTypography = styled(Typography)<{
   // Weight styles
   const getWeightStyles = () => {
     switch (weight) {
-      case "light":
+      case 'light':
         return { fontWeight: 300 };
-      case "regular":
+      case 'regular':
         return { fontWeight: 400 };
-      case "medium":
+      case 'medium':
         return { fontWeight: 500 };
-      case "semibold":
+      case 'semibold':
         return { fontWeight: 600 };
-      case "bold":
+      case 'bold':
         return { fontWeight: 700 };
       default:
         return {};
@@ -118,12 +108,11 @@ const StyledTypography = styled(Typography)<{
   return {
     ...getVariantStyles(),
     ...getColorStyles(),
-    ...getWeightStyles(),
+    ...getWeightStyles()
   };
 });
 
-export interface CustomTypographyProps
-  extends Omit<TypographyProps, "variant" | "color"> {
+export interface CustomTypographyProps extends Omit<TypographyProps, 'variant' | 'color'> {
   customvariant?: CustomVariant;
   colorvariant?: ColorVariant;
   weight?: WeightVariant;
@@ -146,23 +135,23 @@ const CustomTypography: React.FC<CustomTypographyProps> = ({
   // Additional styles for special features
   const additionalStyles = {
     ...(gradient && {
-      background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
+      background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      backgroundClip: 'text'
     }),
     ...(truncate && {
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      whiteSpace: "nowrap" as const,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap' as const
     }),
     ...(maxLines && {
-      display: "-webkit-box",
+      display: '-webkit-box',
       WebkitLineClamp: maxLines,
-      WebkitBoxOrient: "vertical" as const,
-      overflow: "hidden",
+      WebkitBoxOrient: 'vertical' as const,
+      overflow: 'hidden'
     }),
-    ...sx,
+    ...sx
   };
 
   return (

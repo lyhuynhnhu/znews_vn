@@ -1,42 +1,29 @@
-"use client";
+'use client';
 
-import type React from "react";
-import { forwardRef } from "react";
-import { Box, type BoxProps } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { shouldForwardProp as _shouldForwardProp } from "@mui/system";
+import type React from 'react';
+import { forwardRef } from 'react';
+import { Box, type BoxProps } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { shouldForwardProp as _shouldForwardProp } from '@mui/system';
 
 // Define aspect ratio
-export type AspectRatio =
-  | "square"
-  | "video"
-  | "portrait"
-  | "landscape"
-  | "ultrawide"
-  | "golden"
-  | number; // Custom (width/height)
+export type AspectRatio = 'square' | 'video' | 'portrait' | 'landscape' | 'ultrawide' | 'golden' | number; // Custom (width/height)
 
 // Define object fit options
-export type ObjectFit = "cover" | "contain" | "fill" | "none" | "scale-down";
+export type ObjectFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 
 // Define border radius
-export type BorderRadius =
-  | "none"
-  | "small"
-  | "medium"
-  | "large"
-  | "full"
-  | number;
+export type BorderRadius = 'none' | 'small' | 'medium' | 'large' | 'full' | number;
 
 // Props interface extending BoxProps
-export interface ImageBoxProps extends Omit<BoxProps, "component"> {
+export interface ImageBoxProps extends Omit<BoxProps, 'component'> {
   // Component type
   component?: React.ElementType;
 
   // Image-specific props
   src?: string;
   alt?: string;
-  loading?: "lazy" | "eager";
+  loading?: 'lazy' | 'eager';
   aspectRatio?: AspectRatio;
   objectFit?: ObjectFit;
   borderRadius?: BorderRadius;
@@ -55,55 +42,45 @@ export interface ImageBoxProps extends Omit<BoxProps, "component"> {
 // Helper function to get aspect ratio value
 const getAspectRatioValue = (ratio: AspectRatio): number => {
   switch (ratio) {
-    case "square":
+    case 'square':
       return 1;
-    case "video":
+    case 'video':
       return 16 / 9;
-    case "portrait":
+    case 'portrait':
       return 3 / 4;
-    case "landscape":
+    case 'landscape':
       return 4 / 3;
-    case "ultrawide":
+    case 'ultrawide':
       return 21 / 9;
-    case "golden":
+    case 'golden':
       return 1.618;
     default:
-      return typeof ratio === "number" ? ratio : 1;
+      return typeof ratio === 'number' ? ratio : 1;
   }
 };
 
 // Helper function to get border radius value
-const getBorderRadiusValue = (
-  radius: BorderRadius,
-  theme: any
-): string | number => {
+const getBorderRadiusValue = (radius: BorderRadius, theme: any): string | number => {
   switch (radius) {
-    case "none":
+    case 'none':
       return 0;
-    case "small":
+    case 'small':
       return theme.shape.borderRadius * 0.5;
-    case "medium":
+    case 'medium':
       return theme.shape.borderRadius;
-    case "large":
+    case 'large':
       return theme.shape.borderRadius * 2;
-    case "full":
-      return "50%";
+    case 'full':
+      return '50%';
     default:
-      return typeof radius === "number" ? radius : theme.shape.borderRadius;
+      return typeof radius === 'number' ? radius : theme.shape.borderRadius;
   }
 };
 
 // Utility so we can re-use the same filter set
-const customProps = new Set([
-  "aspectRatio",
-  "objectFit",
-  "borderRadius",
-  "clickable",
-  "disabled",
-]);
+const customProps = new Set(['aspectRatio', 'objectFit', 'borderRadius', 'clickable', 'disabled']);
 
-const shouldForwardProp = (prop: PropertyKey) =>
-  _shouldForwardProp(prop) && !customProps.has(prop as string);
+const shouldForwardProp = (prop: PropertyKey) => _shouldForwardProp(prop) && !customProps.has(prop as string);
 
 const StyledBox = styled(Box, { shouldForwardProp })<{
   aspectRatio?: AspectRatio;
@@ -111,64 +88,55 @@ const StyledBox = styled(Box, { shouldForwardProp })<{
   borderRadius?: BorderRadius;
   clickable?: boolean;
   disabled?: boolean;
-}>(
-  ({
-    theme,
-    aspectRatio,
-    objectFit = "cover",
-    borderRadius = "medium",
-    clickable,
-    disabled,
-  }) => {
-    return {
-      position: "relative",
-      overflow: "hidden",
-      borderRadius: getBorderRadiusValue(borderRadius, theme),
+}>(({ theme, aspectRatio, objectFit = 'cover', borderRadius = 'medium', clickable, disabled }) => {
+  return {
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: getBorderRadiusValue(borderRadius, theme),
 
-      // Aspect ratio handling
-      ...(aspectRatio && {
-        aspectRatio: getAspectRatioValue(aspectRatio),
+    // Aspect ratio handling
+    ...(aspectRatio && {
+      aspectRatio: getAspectRatioValue(aspectRatio)
+    }),
+
+    // Image styling
+    '& img, & video': {
+      width: '100%',
+      height: '100%',
+      objectFit,
+      display: 'block'
+    },
+
+    // Clickable styling
+    ...(clickable && {
+      cursor: disabled ? 'not-allowed' : 'pointer',
+      transition: theme.transitions.create(['transform', 'box-shadow'], {
+        duration: theme.transitions.duration.short
       }),
+      '&:hover': !disabled && {
+        transform: 'scale(1.02)',
+        boxShadow: theme.shadows[4]
+      }
+    }),
 
-      // Image styling
-      "& img, & video": {
-        width: "100%",
-        height: "100%",
-        objectFit,
-        display: "block",
-      },
-
-      // Clickable styling
-      ...(clickable && {
-        cursor: disabled ? "not-allowed" : "pointer",
-        transition: theme.transitions.create(["transform", "box-shadow"], {
-          duration: theme.transitions.duration.short,
-        }),
-        "&:hover": !disabled && {
-          transform: "scale(1.02)",
-          boxShadow: theme.shadows[4],
-        },
-      }),
-
-      // Disabled styling
-      ...(disabled && {
-        opacity: 0.6,
-        pointerEvents: "none",
-      }),
-    };
-  }
-);
+    // Disabled styling
+    ...(disabled && {
+      opacity: 0.6,
+      pointerEvents: 'none'
+    })
+  };
+});
 
 const ImageBox = forwardRef<HTMLElement, ImageBoxProps>(
   (
     {
-      component = "img",
+      component = 'img',
       src,
       alt,
-      loading = "lazy",
+      loading = 'lazy',
       aspectRatio,
-      objectFit = "cover",
-      borderRadius = "medium",
+      objectFit = 'cover',
+      borderRadius = 'medium',
       clickable = false,
       disabled = false,
       onLoad,
@@ -189,15 +157,15 @@ const ImageBox = forwardRef<HTMLElement, ImageBoxProps>(
 
     // Component-specific props
     const componentProps = {
-      ...(component === "img" && {
+      ...(component === 'img' && {
         src,
         alt,
         loading,
-        ...(responsive && sizes && { sizes }),
+        ...(responsive && sizes && { sizes })
       }),
-      ...(component === "video" && {
-        src,
-      }),
+      ...(component === 'video' && {
+        src
+      })
     };
 
     return (
@@ -211,20 +179,20 @@ const ImageBox = forwardRef<HTMLElement, ImageBoxProps>(
         onClick={handleClick}
         sx={{
           ...(responsive && {
-            width: "100%",
-            maxWidth: "100%",
+            width: '100%',
+            maxWidth: '100%'
           }),
-          ...sx,
+          ...sx
         }}
         {...props}
       >
         {/* Actual image/video content */}
-        {(component === "img" || component === "video") && src && (
+        {(component === 'img' || component === 'video') && src && (
           <Box
             component={component}
             {...componentProps}
             sx={{
-              transition: "opacity 0.3s ease-in-out",
+              transition: 'opacity 0.3s ease-in-out'
             }}
           />
         )}
@@ -233,6 +201,6 @@ const ImageBox = forwardRef<HTMLElement, ImageBoxProps>(
   }
 );
 
-ImageBox.displayName = "ImageBox";
+ImageBox.displayName = 'ImageBox';
 
 export default ImageBox;

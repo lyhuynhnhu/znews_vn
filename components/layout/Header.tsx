@@ -1,6 +1,6 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
 import {
   AppBar,
   Toolbar,
@@ -14,56 +14,53 @@ import {
   List,
   ListItem,
   ListItemText,
-  Container,
-} from "@mui/material";
-import { Search, Menu } from "@mui/icons-material";
-import menuItems from "@/constants/menu";
+  Container
+} from '@mui/material';
+import { Search, Menu } from '@mui/icons-material';
+import menuItems from '@/constants/menu';
 
 const Header = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
       <AppBar
         sx={{
-          bgcolor: "white",
-          color: "black",
+          bgcolor: 'white',
+          color: 'black',
           boxShadow: 1,
-          alignItems: "center",
-          zIndex: 100,
+          alignItems: 'center',
+          zIndex: 100
         }}
       >
-        <Container maxWidth="lg">
-          <Toolbar sx={{ justifyContent: "space-between", position: "relative" }}>
+        <Container maxWidth='lg'>
+          <Toolbar sx={{ justifyContent: 'space-between', position: 'relative' }}>
             {isMobile && (
-                <IconButton
-                  color="inherit"
-                  onClick={() => setDrawerOpen(true)}
-                  sx={{
-                    "&:hover": {
-                      color: "#ff6b35",
-                    },
-                  }}
-                >
-                  <Menu />
-                </IconButton>
-              )}
+              <IconButton
+                color='inherit'
+                onClick={() => setDrawerOpen(true)}
+                sx={{
+                  '&:hover': {
+                    color: '#ff6b35'
+                  }
+                }}
+              >
+                <Menu />
+              </IconButton>
+            )}
             {/* Logo - Positioned on the left */}
             <Box>
-              <Link
-                href="/"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Link href='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Typography
-                    variant="h5"
-                    component="div"
+                    variant='h5'
+                    component='div'
                     sx={{
-                      fontWeight: "bold",
-                      color: "#ff6b35",
-                      fontSize: { xs: "1.2rem", md: "1.5rem" },
+                      fontWeight: 'bold',
+                      color: '#ff6b35',
+                      fontSize: { xs: '1.2rem', md: '1.5rem' }
                     }}
                   >
                     ZNews
@@ -74,33 +71,33 @@ const Header = () => {
 
             {/* Navigation Menu - Centered */}
             {!isMobile && (
-              <Box sx={{ display: "flex", gap: 3 }}>
+              <Box sx={{ display: 'flex', gap: 3 }}>
                 {menuItems.map((item) => (
                   <Button
                     key={item}
-                    color="inherit"
+                    color='inherit'
                     sx={{
-                      textTransform: "none",
-                      fontSize: "0.95rem",
-                      fontWeight: "500",
-                      position: "relative",
-                      "&:hover": {
-                        color: "#ff6b35",
-                        backgroundColor: "transparent",
-                        "&::after": {
-                          width: "100%",
-                        },
+                      textTransform: 'none',
+                      fontSize: '0.95rem',
+                      fontWeight: '500',
+                      position: 'relative',
+                      '&:hover': {
+                        color: '#ff6b35',
+                        backgroundColor: 'transparent',
+                        '&::after': {
+                          width: '100%'
+                        }
                       },
-                      "&::after": {
+                      '&::after': {
                         content: '""',
-                        position: "absolute",
+                        position: 'absolute',
                         bottom: 0,
                         left: 0,
                         width: 0,
-                        height: "2px",
-                        backgroundColor: "#ff6b35",
-                        transition: "width 0.3s ease",
-                      },
+                        height: '2px',
+                        backgroundColor: '#ff6b35',
+                        transition: 'width 0.3s ease'
+                      }
                     }}
                   >
                     {item}
@@ -112,16 +109,16 @@ const Header = () => {
             {/* Search and Menu - Positioned on the right */}
             <Box
               sx={{
-                display: "flex",
-                alignItems: "center",
+                display: 'flex',
+                alignItems: 'center'
               }}
             >
               <IconButton
-                color="inherit"
+                color='inherit'
                 sx={{
-                  "&:hover": {
-                    color: "#ff6b35",
-                  },
+                  '&:hover': {
+                    color: '#ff6b35'
+                  }
                 }}
               >
                 <Search />
@@ -131,11 +128,7 @@ const Header = () => {
         </Container>
       </AppBar>
 
-      <Drawer
-        anchor="top"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      >
+      <Drawer anchor='top' open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box sx={{ width: 250 }}>
           <List>
             {menuItems.map((item) => (
@@ -143,12 +136,12 @@ const Header = () => {
                 key={item}
                 onClick={() => setDrawerOpen(false)}
                 sx={{
-                  "&:hover": {
-                    backgroundColor: "#f5f5f5",
-                    "& .MuiListItemText-primary": {
-                      color: "#ff6b35",
-                    },
-                  },
+                  '&:hover': {
+                    backgroundColor: '#f5f5f5',
+                    '& .MuiListItemText-primary': {
+                      color: '#ff6b35'
+                    }
+                  }
                 }}
               >
                 <ListItemText primary={item} />

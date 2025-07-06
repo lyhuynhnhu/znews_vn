@@ -1,6 +1,6 @@
-"use client";
-import { Box, Grid } from "@mui/material";
-import CategoryColumn from "./CategoryColumn";
+'use client';
+import { Box, Grid } from '@mui/material';
+import CategoryColumn from '@/components/homepage/CategoryColumn';
 
 interface CategoryNews {
   id: number;

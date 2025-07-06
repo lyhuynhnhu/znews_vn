@@ -1,7 +1,7 @@
-"use client";
-import { Box, Grid } from "@mui/material";
-import CustomTypography from "../ui/CustomTypography";
-import VideoItem from "./VideoItem";
+'use client';
+import { Box, Grid } from '@mui/material';
+import CustomTypography from '@/components/ui/CustomTypography';
+import VideoItem from '@/components/homepage/VideoItem';
 
 interface VideoPlayerProps {
   id: number;
@@ -20,18 +20,18 @@ const VideoSection = ({ featured, related }: VideoSectionProps) => {
   return (
     <Box sx={{ p: { xs: 1, md: 4 } }}>
       <CustomTypography
-        customvariant="title"
-        colorvariant="textPrimary"
+        customvariant='title'
+        colorvariant='textPrimary'
         sx={{
-          color: "black",
-          "&::before": {
+          color: 'black',
+          '&::before': {
             content: '"/"',
-            color: "#ff6b35",
+            color: '#ff6b35',
             marginRight: 1,
-            fontSize: "1em",
-            fontWeight: "bold",
+            fontSize: '1em',
+            fontWeight: 'bold'
           },
-          mb: 3,
+          mb: 3
         }}
       >
         VIDEO
@@ -53,8 +53,8 @@ const VideoSection = ({ featured, related }: VideoSectionProps) => {
           <Box
             sx={{
               maxHeight: 450,
-              overflowY: "auto",
-              scrollbarWidth: "thin",
+              overflowY: 'auto',
+              scrollbarWidth: 'thin'
             }}
           >
             {related.map((video) => (

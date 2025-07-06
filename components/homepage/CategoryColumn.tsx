@@ -1,7 +1,7 @@
-"use client";
-import { Box } from "@mui/material";
-import CategoryCard from "./CategoryCard";
-import CustomTypography from "../ui/CustomTypography";
+'use client';
+import { Box } from '@mui/material';
+import CategoryCard from '@/components/homepage/CategoryCard';
+import CustomTypography from '@/components/ui/CustomTypography';
 
 interface CategoryNews {
   id: number;
@@ -23,27 +23,25 @@ const CategoryColumn = ({ category, articles }: CategoryColumnProps) => {
     <Box>
       {/* Category Header */}
       <CustomTypography
-        customvariant="title"
-        colorvariant="textPrimary"
+        customvariant='title'
+        colorvariant='textPrimary'
         sx={{
           mb: 3,
-          color: "black",
-          "&::before": {
+          color: 'black',
+          '&::before': {
             content: '"/"',
-            color: "#ff6b35",
+            color: '#ff6b35',
             marginRight: 1,
-            fontSize: "1em",
-            fontWeight: "bold",
-          },
+            fontSize: '1em',
+            fontWeight: 'bold'
+          }
         }}
       >
         {category}
       </CustomTypography>
 
       {/* Featured Article */}
-      {featuredArticle && (
-        <CategoryCard {...featuredArticle} />
-      )}
+      {featuredArticle && <CategoryCard {...featuredArticle} />}
 
       {/* Sub Articles */}
       <Box>
