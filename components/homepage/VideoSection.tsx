@@ -18,7 +18,7 @@ interface VideoSectionProps {
 
 const VideoSection = ({ featured, related }: VideoSectionProps) => {
   return (
-    <Box sx={{ p: 4 }}>
+    <Box sx={{ p: { xs: 1, md: 4 } }}>
       <CustomTypography
         customvariant="title"
         colorvariant="textPrimary"

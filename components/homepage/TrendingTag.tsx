@@ -1,5 +1,5 @@
 "use client";
-import { Box, Chip } from "@mui/material";
+import { Box, Chip, useTheme } from "@mui/material";
 import { TrendingUp } from "@mui/icons-material";
 
 const trendingTags = [
@@ -9,12 +9,14 @@ const trendingTags = [
 ];
 
 const TrendingTag = () => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
         p: 2,
         borderRadius: 1,
-        display: "flex",
+        display: { xs: "none", md: "flex" },
         alignItems: "center",
         gap: 2,
         flexWrap: "wrap",
@@ -25,7 +27,7 @@ const TrendingTag = () => {
           display: "flex",
           alignItems: "center",
           gap: 1,
-          bgcolor: "#ff6b35",
+          bgcolor: theme.palette.primary.main,
           borderRadius: "50%",
         }}
       >
@@ -41,7 +43,7 @@ const TrendingTag = () => {
             sx={{
               bgcolor: "#f0f0f0",
               "&:hover": {
-                bgcolor: "#ff6b35",
+                bgcolor: theme.palette.primary.main,
                 color: "white",
               },
               cursor: "pointer",

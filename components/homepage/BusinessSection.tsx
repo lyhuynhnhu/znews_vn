@@ -1,5 +1,6 @@
 "use client";
-import { Box, Typography, Grid, Divider } from "@mui/material";
+import { Box, Grid, Divider, useTheme } from "@mui/material";
+import CustomTypography from "../ui/CustomTypography";
 import BusinessCard from "./BusinessCard";
 
 interface BusinessNews {
@@ -19,23 +20,23 @@ interface BusinessSectionProps {
 }
 
 const BusinessSection = ({ type, businessNews }: BusinessSectionProps) => {
+  const theme = useTheme();
+
   const featuredNews = businessNews.find((item) => item.size === "large");
   const mediumNews = businessNews.filter((item) => item.size === "medium");
   const smallNews = businessNews.filter((item) => item.size === "small");
 
   return (
-    <Box sx={{ mb: 4, p: 4 }}>
+    <Box sx={{ p: { xs: 1, md: 4 } }}>
       {/* Section Header */}
-      <Typography
-        variant="h5"
-        component="h2"
+      <CustomTypography
+        customvariant="title"
+        colorvariant="textPrimary"
         sx={{
-          fontWeight: "bold",
-          mb: 1,
-          position: "relative",
+          color: "black",
           "&::before": {
             content: '"/"',
-            color: "#ff6b35",
+            color: theme.palette.primary.main,
             marginRight: 1,
             fontSize: "1em",
             fontWeight: "bold",
@@ -43,17 +44,17 @@ const BusinessSection = ({ type, businessNews }: BusinessSectionProps) => {
         }}
       >
         {type}
-      </Typography>
-      <Divider sx={{ mb: 3 }} />
+      </CustomTypography>
+      <Divider sx={{ my: 2 }} />
 
       <Grid container spacing={3}>
         {/* Left Column - Featured News (Large) */}
-        <Grid size={{ xs: 12, md: 5.5 }}>
+        <Grid size={{ xs: 12, sm: 7, md: 5.5 }}>
           {featuredNews && <BusinessCard {...featuredNews} />}
         </Grid>
 
         {/* Center Column - Medium News */}
-        <Grid size={{ xs: 12, md: 3 }}>
+        <Grid size={{ xs: 12, sm: 5, md: 3 }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {mediumNews.map((article) => (
               <BusinessCard key={article.id} {...article} />
@@ -62,16 +63,16 @@ const BusinessSection = ({ type, businessNews }: BusinessSectionProps) => {
         </Grid>
 
         {/* Right Column - Small News List */}
-        <Grid size={{ xs: 12, md: 3.5 }}>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {smallNews.map((article, index) => (
+        <Grid container size={{ xs: 12, sm: 12, md: 3.5 }} spacing={2}>
+          {smallNews.map((article, index) => (
+            <Grid size={{ xs: 12, sm: 6, md: 12 }} key={article.id}>
               <BusinessCard
                 key={article.id}
                 {...article}
                 isLast={index === smallNews.length - 1}
               />
-            ))}
-          </Box>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Box>

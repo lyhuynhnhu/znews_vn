@@ -23,7 +23,7 @@ const BusinessCard = ({
   isLast,
 }: BusinessCardProps) => {
   return (
-    <Link href={`/business/${id}`} style={{ textDecoration: "none" }}>
+    <Link href={`/news/${id}`} style={{ textDecoration: "none" }}>
       {size === "large" && (
         <LargeBusinessCard title={title} summary={summary} image={image} />
       )}
@@ -46,14 +46,13 @@ const LargeBusinessCard = ({
       alt={title}
       sx={{
         width: "100%",
-        height: { xs: 200, md: 320 },
+        height: { xs: 230, md: 320 },
       }}
     />
 
     <CustomTypography
       customvariant="title"
       colorvariant="textPrimary"
-      maxLines={2}
       sx={{
         py: 2,
         "&:hover": {
@@ -126,7 +125,7 @@ const SmallBusinessCard = ({
           borderRadius: 1,
           transition: "all 0.3s ease",
         },
-        p: 1,
+        px: 1,
       }}
     >
       <CustomTypography
@@ -146,12 +145,12 @@ const SmallBusinessCard = ({
         src={image}
         alt={title}
         sx={{
-          width: { xs: 50, md: 70 },
-          height: { xs: 50, md: 70 },
+          width: 70,
+          height: 70,
         }}
       />
     </Box>
-    {!isLast && <Divider sx={{ my: 1 }} />}
+    {!isLast && <Divider sx={{ mt: 2 }} />}
   </>
 );
 

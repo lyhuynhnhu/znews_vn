@@ -13,6 +13,7 @@ export type CustomVariant =
 // Define color variants
 export type ColorVariant =
   | "primary"
+  | "secondary"
   | "success"
   | "error"
   | "warning"
@@ -77,6 +78,8 @@ const StyledTypography = styled(Typography)<{
     switch (colorvariant) {
       case "primary":
         return { color: theme.palette.primary.main };
+      case "secondary":
+        return { color: "#666" };
       case "success":
         return { color: theme.palette.success.main };
       case "error":
@@ -126,7 +129,7 @@ export interface CustomTypographyProps
   weight?: WeightVariant;
   gradient?: boolean;
   truncate?: boolean;
-  maxLines?: number;
+  maxLines?: number | any;
 }
 
 const CustomTypography: React.FC<CustomTypographyProps> = ({

@@ -114,21 +114,24 @@ export async function GET() {
       {
         id: 12,
         title: "'Nàng thơ' Hải Tú trước khi bị đào lại ảnh nhạy cảm",
-        image: "/images/girl.webp",
+        image: "/images/city.webp",
+        category: "Thời trang",
         featured: false,
         size: "small",
       },
       {
         id: 13,
         title: "Ferrari thua kiện",
-        image: "/images/sport.webp",
+        image: "/images/news.jpg",
+        category: "Xây dựng",
         featured: false,
         size: "small",
       },
       {
         id: 14,
         title: "Trịnh Linh Giang vào bán kết đơn nam PPA Tour châu Á",
-        image: "/images/sport.jpg",
+        image: "/images/business.webp",
+        category: "Đời sống",
         featured: false,
         size: "small",
 
@@ -137,6 +140,7 @@ export async function GET() {
         id: 15,
         title: "Labubu - từ quái vật vô danh thành biểu tượng 'cả triệu tiền'",
         image: "/images/news.jpg",
+        category: "Xây dựng",
         featured: false,
         size: "small",
 
@@ -144,7 +148,8 @@ export async function GET() {
       {
         id: 16,
         title: "Không chỉ Hải Tú chụp ảnh nude nghệ thuật",
-        image: "/images/girl.webp",
+        image: "/images/business.webp",
+        category: "Xã hội",
         featured: false,
         size: "small",
 

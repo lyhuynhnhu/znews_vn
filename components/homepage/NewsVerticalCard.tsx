@@ -35,14 +35,14 @@ const NewsVerticalCard = ({
           src={image}
           alt={title}
           sx={{
-            height: featured ? 320 : 180,
+            height: featured ? { xs: 200, md: 320 } : { xs: 100, sm: 120, md: 180 },
           }}
         />
 
         <CustomTypography
           customvariant={!featured ? "mediumTitle" : "title"}
           colorvariant="textPrimary"
-          maxLines={featured ? 3 : 2}
+          maxLines={featured ? 3 : { xs: "auto", sm: 2 }}
           sx={{
             mb: 1,
             mt: featured ? 2 : 1,

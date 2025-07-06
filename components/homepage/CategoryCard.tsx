@@ -1,5 +1,5 @@
 "use client";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Link from "next/link";
 import ImageBox from "../ui/ImageBox";
 import CustomTypography from "../ui/CustomTypography";
@@ -9,7 +9,6 @@ interface CategoryCardProps {
   title: string;
   image: string;
   featured: boolean;
-  category: string;
 }
 
 const CategoryCard = ({
@@ -17,7 +16,6 @@ const CategoryCard = ({
   title,
   image,
   featured,
-  category,
 }: CategoryCardProps) => {
   const href = `/news/${id}`;
   const boxStyles = featured
@@ -36,7 +34,7 @@ const CategoryCard = ({
         p: 1,
       };
   const imageBoxStyles = featured
-    ? { width: "100%", height: 150, mb: 2 }
+    ? { width: "100%", height: { xs: 200, md: 150 }, mb: 2 }
     : { width: 60, height: 45 };
   const typographyVariant = featured ? "mediumTitle" : "subTitle";
   const maxLines = featured ? 1 : 3;

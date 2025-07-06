@@ -5,7 +5,7 @@ export async function GET() {
     featured: {
       id: 1,
       title: "Toàn cảnh cuộc điện đàm giữa Tổng Bí thư Tô Lâm và Tổng thống Mỹ",
-      thumbnail: "/placeholder.svg?height=400&width=700",
+      thumbnail: "/images/city.webp",
       category: "CHÍNH TRỊ",
       videoUrl: "https://video.znews.vn/f7d5517f887a27af038d5b890208ef0b/6869625b/2025_06_27/quynhdanh/0627.mp4",
     },
@@ -41,7 +41,7 @@ export async function GET() {
       {
         id: 6,
         title: "Gấu xuất hiện trên đường phố khiến người dân hoảng sợ",
-        thumbnail: "/images/healthy.webp",
+        thumbnail: "/images/city.webp",
         category: "XÃ HỘI",
         videoUrl: ""
       },

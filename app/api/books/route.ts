@@ -25,7 +25,7 @@ export async function GET() {
     {
       id: 5,
       title: "Giấc ngủ là 'phương pháp làm đẹp' tốt nhất với phụ nữ?",
-      image: "/images/healthy.webp",
+      image: "/images/city.webp",
     },
     {
       id: 6,

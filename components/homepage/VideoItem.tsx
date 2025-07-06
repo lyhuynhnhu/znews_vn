@@ -80,15 +80,11 @@ const VideoItem = ({
   ) : (
     <Box
       sx={{
-        position: "relative",
         width: "100%",
-        height: 400,
-        bgcolor: "#000",
+        height: { xs: "auto", md: 400 },
+        cursor: "pointer",
         borderRadius: 2,
         overflow: "hidden",
-        "&:hover .video-controls": {
-          opacity: 1,
-        },
       }}
     >
       <video

@@ -27,13 +27,31 @@ const Header = () => {
   return (
     <>
       <AppBar
-        position="sticky"
-        sx={{ bgcolor: "white", color: "black", boxShadow: 1, alignItems: "center" }}
+        sx={{
+          bgcolor: "white",
+          color: "black",
+          boxShadow: 1,
+          alignItems: "center",
+          zIndex: 100,
+        }}
       >
         <Container maxWidth="lg">
-          <Toolbar sx={{ justifyContent: "center", position: "relative" }}>
+          <Toolbar sx={{ justifyContent: "space-between", position: "relative" }}>
+            {isMobile && (
+                <IconButton
+                  color="inherit"
+                  onClick={() => setDrawerOpen(true)}
+                  sx={{
+                    "&:hover": {
+                      color: "#ff6b35",
+                    },
+                  }}
+                >
+                  <Menu />
+                </IconButton>
+              )}
             {/* Logo - Positioned on the left */}
-            <Box sx={{ position: "absolute", left: 0 }}>
+            <Box>
               <Link
                 href="/"
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -94,8 +112,6 @@ const Header = () => {
             {/* Search and Menu - Positioned on the right */}
             <Box
               sx={{
-                position: "absolute",
-                right: 0,
                 display: "flex",
                 alignItems: "center",
               }}
@@ -110,27 +126,13 @@ const Header = () => {
               >
                 <Search />
               </IconButton>
-
-              {isMobile && (
-                <IconButton
-                  color="inherit"
-                  onClick={() => setDrawerOpen(true)}
-                  sx={{
-                    "&:hover": {
-                      color: "#ff6b35",
-                    },
-                  }}
-                >
-                  <Menu />
-                </IconButton>
-              )}
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
 
       <Drawer
-        anchor="right"
+        anchor="top"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >

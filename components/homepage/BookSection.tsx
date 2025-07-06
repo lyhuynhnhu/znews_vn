@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import BookCard from "./BookCard";
 import CustomTypography from "../ui/CustomTypography";
@@ -17,6 +17,7 @@ interface BooksSectionProps {
 }
 
 const BooksSection = ({ books }: BooksSectionProps) => {
+  const theme = useTheme();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
@@ -30,7 +31,7 @@ const BooksSection = ({ books }: BooksSectionProps) => {
   };
 
   return (
-    <Box sx={{ px: 4, mb: 4 }}>
+    <Box sx={{ p: { xs: 1, md: 4 } }}>
       <CustomTypography
         customvariant="title"
         colorvariant="textPrimary"
@@ -38,7 +39,7 @@ const BooksSection = ({ books }: BooksSectionProps) => {
           color: "black",
           "&::before": {
             content: '"/"',
-            color: "#ff6b35",
+            color: theme.palette.primary.main,
             marginRight: 1,
             fontSize: "1em",
             fontWeight: "bold",
@@ -55,20 +56,20 @@ const BooksSection = ({ books }: BooksSectionProps) => {
           onClick={() => scroll("left")}
           sx={{
             position: "absolute",
-            left: -20,
+            left: { xs: -15, md: -20 },
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 2,
             bgcolor: "white",
             border: "1px solid #e0e0e0",
             boxShadow: 2,
-            width: 40,
-            height: 40,
+            width: { xs: 30, md: 40 },
+            height: { xs: 30, md: 40 },
             "&:hover": {
               bgcolor: "#f5f5f5",
               boxShadow: 3,
             },
-            display: { xs: "none", md: "flex" },
+            display: "flex",
           }}
         >
           <ChevronLeft />
@@ -79,20 +80,20 @@ const BooksSection = ({ books }: BooksSectionProps) => {
           onClick={() => scroll("right")}
           sx={{
             position: "absolute",
-            right: -20,
+            right: { xs: -15, md: -20 },
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 2,
             bgcolor: "white",
             border: "1px solid #e0e0e0",
             boxShadow: 2,
-            width: 40,
-            height: 40,
+            width: { xs: 30, md: 40 },
+            height: { xs: 30, md: 40 },
             "&:hover": {
               bgcolor: "#f5f5f5",
               boxShadow: 3,
             },
-            display: { xs: "none", md: "flex" },
+            display: "flex",
           }}
         >
           <ChevronRight />

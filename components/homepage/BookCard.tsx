@@ -1,5 +1,11 @@
 "use client";
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Link from "next/link";
 import CustomTypography from "../ui/CustomTypography";
 
@@ -10,10 +16,21 @@ interface BookCardProps {
 }
 
 const BookCard = ({ id, title, image }: BookCardProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Link
       href={`/books/${id}`}
-      style={{ textDecoration: "none", minWidth: "calc(20% - 14px)" }}
+      style={{
+        textDecoration: "none",
+        minWidth: isMobile
+          ? "calc(100% - 5px)"
+          : isTablet
+          ? "calc(33% - 10px)"
+          : "calc(20% - 14px)",
+      }}
     >
       <Card
         variant="outlined"
@@ -29,7 +46,7 @@ const BookCard = ({ id, title, image }: BookCardProps) => {
             colorvariant="textPrimary"
             sx={{
               "&:hover": {
-                color: "#006BA0",
+                color: theme.palette.secondary.main,
               },
               mb: 1,
             }}

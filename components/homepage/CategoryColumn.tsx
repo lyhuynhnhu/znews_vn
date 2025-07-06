@@ -1,5 +1,5 @@
 "use client";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import CategoryCard from "./CategoryCard";
 import CustomTypography from "../ui/CustomTypography";
 
@@ -42,13 +42,13 @@ const CategoryColumn = ({ category, articles }: CategoryColumnProps) => {
 
       {/* Featured Article */}
       {featuredArticle && (
-        <CategoryCard {...featuredArticle} category={category} />
+        <CategoryCard {...featuredArticle} />
       )}
 
       {/* Sub Articles */}
       <Box>
         {subArticles.map((article) => (
-          <CategoryCard key={article.id} {...article} category={category} />
+          <CategoryCard key={article.id} {...article} />
         ))}
       </Box>
     </Box>

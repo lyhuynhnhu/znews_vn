@@ -32,7 +32,7 @@ const NewsHorizontalCard = ({
           src={image}
           alt={title}
           sx={{
-            width: "40%",
+            width: { xs: '30%', md: '40%' },
             height: 70,
             mr: 2,
           }}

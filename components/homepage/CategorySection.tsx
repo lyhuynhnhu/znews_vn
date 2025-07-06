@@ -17,7 +17,7 @@ const CategorySection = ({ categoryNews }: CategorySectionProps) => {
   const categories = Object.keys(categoryNews);
 
   return (
-    <Box sx={{ p: 4 }}>
+    <Box sx={{ p: { xs: 1, md: 4 } }}>
       <Grid container spacing={4}>
         {categories.map((category) => {
           const articles = categoryNews[category];
