@@ -70,8 +70,6 @@ export default async function Home() {
       getVideos(),
     ]);
 
-  const businessNewsKeys = Object.keys(businessNews);
-
   return (
     <>
       <Header />
@@ -83,14 +81,7 @@ export default async function Home() {
           <FeatureSection news={news} />
           <BooksSection books={books} />
           <MultimediaSection multiMedia={multimedia} />
-          {businessNewsKeys.length > 0 &&
-            businessNewsKeys.map((item) => (
-              <BusinessSection
-                key={item}
-                type={item}
-                businessNews={businessNews[item]}
-              ></BusinessSection>
-            ))}
+          <BusinessSection businessNews={businessNews} />
           <CategorySection categoryNews={categoryNews} />
           <VideoSection featured={videos.featured} related={videos.related} />
         </Container>
