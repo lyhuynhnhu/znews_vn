@@ -3,16 +3,7 @@ import { Box } from "@mui/material";
 import Link from "next/link";
 import CustomTypography from "../ui/CustomTypography";
 import ImageBox from "../ui/ImageBox";
-
-interface NewsCardProps {
-  id: number;
-  title: string;
-  summary?: string;
-  image: string;
-  category?: string;
-  publishedAt?: string;
-  featured?: boolean;
-}
+import { NewsFields } from "@/constants/news";
 
 const NewsVerticalCard = ({
   id,
@@ -20,7 +11,7 @@ const NewsVerticalCard = ({
   summary,
   image,
   featured = false,
-}: NewsCardProps) => {
+}: NewsFields) => {
   return (
     <Link href={`/news/${id}`} style={{ textDecoration: "none" }}>
       <Box
@@ -35,7 +26,9 @@ const NewsVerticalCard = ({
           src={image}
           alt={title}
           sx={{
-            height: featured ? { xs: 200, md: 320 } : { xs: 100, sm: 120, md: 180 },
+            height: featured
+              ? { xs: 200, md: 320 }
+              : { xs: 100, sm: 120, md: 180 },
           }}
         />
 

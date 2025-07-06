@@ -2,21 +2,13 @@
 import Link from "next/link";
 import { Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import ImageIcon from "@mui/icons-material/Image";
+import { NewsFields } from "@/constants/news";
 import CustomTypography from "../ui/CustomTypography";
 import ImageBox from "../ui/ImageBox";
 
 interface MultimediaContent {
-  featured: {
-    id: number;
-    title: string;
-    summary: string;
-    image: string;
-  };
-  grid: {
-    id: number;
-    title: string;
-    image: string;
-  }[];
+  featured: NewsFields;
+  grid: NewsFields[];
 }
 
 interface MultimediaSectionProps {

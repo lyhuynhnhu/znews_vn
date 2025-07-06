@@ -1,22 +1,15 @@
 import { Box, Grid } from "@mui/material";
+import { NewsFields } from "@/constants/news";
 import NewsVerticalCard from "./NewsVerticalCard";
 import NewsHorizontalCard from "./NewsHorizontalCard";
 
-interface News {
-  id: number;
-  title: string;
-  image: string;
-  summary?: string;
-  featured: boolean;
-}
-
 interface FeatureSectionProps {
-  news: News[];
+  news: NewsFields[];
 }
 
 const FeatureSection = ({ news }: FeatureSectionProps) => {
-  const featuredNews = news?.find((item: News) => item.featured);
-  const notFeaturedNews = news?.filter((item: News) => !item.featured);
+  const featuredNews = news?.find((item: NewsFields) => item.featured);
+  const notFeaturedNews = news?.filter((item: NewsFields) => !item.featured);
   const leftSidebarNews = notFeaturedNews?.slice(0, 5);
   const rightSidebarNews = notFeaturedNews?.slice(-2);
 
@@ -61,9 +54,7 @@ const FeatureSection = ({ news }: FeatureSectionProps) => {
               {leftSidebarNews.map((article: any, idx: number) => (
                 <NewsHorizontalCard
                   key={article.id}
-                  id={article.id}
-                  title={article.title}
-                  image={article.image}
+                  {...article}
                   isLast={idx === leftSidebarNews.length - 1}
                 />
               ))}

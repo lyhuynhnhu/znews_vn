@@ -2,15 +2,9 @@
 import { Box, Grid, Divider, useTheme } from "@mui/material";
 import CustomTypography from "../ui/CustomTypography";
 import BusinessCard from "./BusinessCard";
+import { NewsFields } from "@/constants/news";
 
-interface BusinessNews {
-  id: number;
-  title: string;
-  summary?: string;
-  image: string;
-  category: string;
-  publishedAt: string;
-  featured: boolean;
+interface BusinessNews extends NewsFields {
   size: "large" | "medium" | "small";
 }
 

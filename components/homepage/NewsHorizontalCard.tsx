@@ -1,14 +1,11 @@
 "use client";
 import { Box, Divider } from "@mui/material";
 import Link from "next/link";
+import { NewsFields } from "@/constants/news";
 import CustomTypography from "../ui/CustomTypography";
 import ImageBox from "../ui/ImageBox";
 
-interface MainNewsCardProps {
-  id: number;
-  title: string;
-  summary?: string;
-  image: string;
+interface MainNewsCardProps extends NewsFields {
   isLast?: boolean;
 }
 
@@ -32,7 +29,7 @@ const NewsHorizontalCard = ({
           src={image}
           alt={title}
           sx={{
-            width: { xs: '30%', md: '40%' },
+            width: { xs: "30%", md: "40%" },
             height: 70,
             mr: 2,
           }}

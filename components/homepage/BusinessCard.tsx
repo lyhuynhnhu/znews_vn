@@ -1,15 +1,11 @@
 "use client";
 import { Box, Card, Divider } from "@mui/material";
 import Link from "next/link";
+import { NewsFields } from "@/constants/news";
 import CustomTypography from "../ui/CustomTypography";
 import ImageBox from "../ui/ImageBox";
 
-interface BusinessCardProps {
-  id: number;
-  title: string;
-  summary?: string;
-  image: string;
-  publishedAt: string;
+interface BusinessCardProps extends NewsFields {
   size: "large" | "medium" | "small";
   isLast?: boolean;
 }

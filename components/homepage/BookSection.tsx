@@ -2,18 +2,12 @@
 import { useRef } from "react";
 import { Box, IconButton, useTheme } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { NewsFields } from "@/constants/news";
 import BookCard from "./BookCard";
 import CustomTypography from "../ui/CustomTypography";
 
-interface Book {
-  id: number;
-  title: string;
-  image: string;
-  author: string;
-}
-
 interface BooksSectionProps {
-  books: Book[];
+  books: NewsFields[];
 }
 
 const BooksSection = ({ books }: BooksSectionProps) => {
